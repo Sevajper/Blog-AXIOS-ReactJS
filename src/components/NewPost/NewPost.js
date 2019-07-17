@@ -18,9 +18,15 @@ class NewPost extends Component {
       content: this.state.content,
       author: this.state.author
     }
-    axios.post('/posts', data)
+    axios.post('/posts', data) // Change url here to check error, default url in index.js
       .then(response => {
+        window.alert('Post sent to dummy backend!\nStatus ' +
+        response.status + '\nCheck console!')
         console.log(response)
+      })
+      .catch(error => {
+        window.alert(error)
+        console.log(error)
       })
   }
   render () {
@@ -34,6 +40,9 @@ class NewPost extends Component {
         <label>Author</label>
         <select value={this.state.author} onChange={(event) => this.setState({ author: event.target.value })}>
           <option value='Tom'>Tom</option>
+          <option value='Steve'>Steve</option>
+          <option value='Alex'>Alex</option>
+          <option value='Jones'>Jones</option>
         </select>
         <button onClick={this.PostDataHandler.bind(this)}>Add Post</button>
       </div>

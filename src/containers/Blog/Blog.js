@@ -18,7 +18,7 @@ class Blog extends Component {
   componentDidMount () {
     axios.get('/posts') // Sending a get request
       .then(response => {
-        const posts = response.data.slice(0, 4)
+        const posts = response.data.slice(0, 3)
         const updatedPosts = posts.map(post => {
           return {
             ...post,

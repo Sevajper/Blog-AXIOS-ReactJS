@@ -21,10 +21,15 @@ class FullPost extends Component {
     }
   }
 
-  deletePostHandler () { // Deleting a post and logging it, Status code 200 means succesfull
+  deletePostHandler () { // Deleting a post and logging it, Status code 200 means successfull
     axios.delete('/posts/' + this.props.id)
       .then(response => {
+        window.alert('Sent request to delete post from dummy backend\nStatus ' +
+        response.status + '\nCheck console!')
         console.log(response)
+      })
+      .catch(error => {
+        window.alert(error)
       })
   }
 
